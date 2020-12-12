@@ -11,17 +11,19 @@ import {
 import { NEWS_API_KEY } from './constants';
 
 export default function NewsDetail({ route, navigation }) {
-	const [dataLoading, finishLoading] = useState(true);
+	const [dataLoading, setDataLoading] = useState(true);
 	const [allPostData, setAllPostData] = useState([]);
 	const { url } = route.params;
 	const selectedPost = allPostData.find((post) => post.url === url);
 
 	useEffect(() => {
-		fetch(`https://newsapi.org/v2/everything?q=tech&apiKey=${NEWS_API_KEY}`)
+		fetch(
+			`https://newsapi.org/v2/everything?q=react%20native&apiKey=${NEWS_API_KEY}`
+		)
 			.then((response) => response.json())
 			.then((json) => setAllPostData(json.articles))
 			.catch((error) => console.error(error))
-			.finally(() => finishLoading(false));
+			.finally(() => setDataLoading(false));
 	}, []);
 
 	return (

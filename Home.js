@@ -11,15 +11,17 @@ import {
 import { NEWS_API_KEY } from './constants';
 
 export default function Homepage({ navigation }) {
-	const [dataLoading, finishLoading] = useState(true);
-	const [newsData, setData] = useState([]);
+	const [dataLoading, setDataLoading] = useState(true);
+	const [newsData, setNewsData] = useState([]);
 
 	useEffect(() => {
-		fetch(`https://newsapi.org/v2/everything?q=tech&apiKey=${NEWS_API_KEY}`)
+		fetch(
+			`https://newsapi.org/v2/everything?q=react%20native&apiKey=${NEWS_API_KEY}`
+		)
 			.then((response) => response.json())
-			.then((json) => setData(json.articles))
+			.then((json) => setNewsData(json.articles))
 			.catch((error) => console.error(error))
-			.finally(() => finishLoading(false));
+			.finally(() => setDataLoading(false));
 	}, []);
 
 	const storyItem = ({ item }) => {
