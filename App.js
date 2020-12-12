@@ -6,7 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Homepage from './Home';
 import { Platform } from 'react-native';
 import { useFonts } from 'expo-font';
-import { AppLoading } from 'expo';
+import AppLoading from 'expo-app-loading';
 import Header from './Header';
 import Footer from './Footer';
 import { navigationRef } from './RootNavigation';
