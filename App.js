@@ -19,72 +19,66 @@ import CatalogDetail from './CatalogDetail';
 const Stack = createStackNavigator();
 
 export default function App() {
-  let [fontsLoaded] = useFonts({
-    'OpenSans': require('./assets/fonts/OpenSans-Regular.ttf'),
-  });
+	let [fontsLoaded] = useFonts({
+		OpenSans: require('./assets/fonts/OpenSans-Regular.ttf'),
+	});
 
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  } else {
-    return (
-      <NavigationContainer
-        style={{ paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0}}
-        ref={navigationRef}
-      >
-        <Stack.Navigator 
-        initialRouteName="Globomantics"
-        headerMode="screen"
-        >
-        
-          <Stack.Screen
-            name="Globomantics"
-            component={Homepage}
-            options={{
-              header: () => <Header headerDisplay="Globomantics" />
-            }}
-          />
-          <Stack.Screen
-            name="NewsDetail"
-            component={NewsDetail}
-            options={{
-              header: () => <Header headerDisplay="News" />
-            }}
-          />
-          <Stack.Screen 
-            name="About"
-            component={AboutGlobo}
-            options={{
-              header: () => <Header headerDisplay="About Globomantics" />  
-            }}  
-          />
-          <Stack.Screen
-            name="Quote"
-            component={Quotepage}
-            options={{
-              header: () => <Header headerDisplay="Get a quote" />
-            }}
-          />
-          <Stack.Screen 
-            name="Catalog"
-            component={Catalogpage}
-            options={{
-              header: () => <Header headerDisplay="Globomantics Robotics" />
-            }}
-          />
-          <Stack.Screen
-            name="CatalogDetail"
-            component={CatalogDetail}
-            options={{
-              header: () => <Header headerDisplay="Product Information" />
-            }}
-          />
-          
-          
-        </Stack.Navigator>
-        <Footer />
-      </NavigationContainer>
-    );
-  }
+	if (!fontsLoaded) {
+		return <AppLoading />;
+	} else {
+		return (
+			<NavigationContainer
+				style={{
+					paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+				}}
+				ref={navigationRef}
+			>
+				<Stack.Navigator initialRouteName='Globomantics' headerMode='screen'>
+					<Stack.Screen
+						name='Globomantics'
+						component={Homepage}
+						options={{
+							header: () => <Header headerDisplay='Globomantics' />,
+						}}
+					/>
+					<Stack.Screen
+						name='NewsDetail'
+						component={NewsDetail}
+						options={{
+							header: () => <Header headerDisplay='News' />,
+						}}
+					/>
+					<Stack.Screen
+						name='About'
+						component={AboutGlobo}
+						options={{
+							header: () => <Header headerDisplay='About Globomantics' />,
+						}}
+					/>
+					<Stack.Screen
+						name='Quote'
+						component={Quotepage}
+						options={{
+							header: () => <Header headerDisplay='Get a quote' />,
+						}}
+					/>
+					<Stack.Screen
+						name='Catalog'
+						component={Catalogpage}
+						options={{
+							header: () => <Header headerDisplay='Globomantics Robotics' />,
+						}}
+					/>
+					<Stack.Screen
+						name='CatalogDetail'
+						component={CatalogDetail}
+						options={{
+							header: () => <Header headerDisplay='Product Information' />,
+						}}
+					/>
+				</Stack.Navigator>
+				<Footer />
+			</NavigationContainer>
+		);
+	}
 }
-
-
