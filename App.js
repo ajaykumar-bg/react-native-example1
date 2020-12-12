@@ -17,4 +17,7 @@ export default function App() {
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
+  let [fontsLoaded] = useFonts({
+    'OpenSans': require('./assets/fonts/OpenSans-Regular.ttf'),
+  });
 }
