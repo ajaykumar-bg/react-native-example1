@@ -1,25 +1,26 @@
 import React from 'react';
-
-import { StatusBar } from 'expo-status-bar';
-
-import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import logo from './assets/';
+import logo from './assets/globomantics-logo-bug-black.png';
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#FFF',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-});
-function Header() {
-	return (
-		<View style={styles.container}>
-			<Text>Header Page</Text>
-		</View>
-	);
+export default function Header(props) {
+    return(
+        <View style={styles.header}>
+            <Image source={logo} style={{ width: 35, height: 35 }} />
+            <View>
+                <Text style={styles.text}>{props.headerDisplay}</Text>
+            </View>   
+        </View>
+    );
 }
 
-export default Header;
+const styles = StyleSheet.create({
+    header: {
+        width: '100%',
+        height: 70,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    text:{
+        fontFamily: 'OpenSans'
+    }
+});
